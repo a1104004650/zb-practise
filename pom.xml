@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zbc</groupId>
-    <artifactId>practise</artifactId>
+    <artifactId>zb-practise</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>practise</name>
+    <name>zb-practise</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
