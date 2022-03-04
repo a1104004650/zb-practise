@@ -14,7 +14,6 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import com.alibaba.fastjson.JSON;
 
-import org.apache.logging.log4j.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
