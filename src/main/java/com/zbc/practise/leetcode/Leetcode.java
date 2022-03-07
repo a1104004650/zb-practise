@@ -1,9 +1,13 @@
 package com.zbc.practise.leetcode;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
-public class Leetcode {
+public class Leetcode<main> {
 
     // leetCode 第一题
     // 算出数组中任意2个组合成为target
@@ -32,6 +36,49 @@ public class Leetcode {
             map.put(nums[i], i);
         }
         return null;
+    }
+
+    /**
+     * Definition for singly-linked list.
+     * 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+     * 请你将两个数相加，并以相同形式返回一个表示和的链表。
+     * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+     */
+     public class ListNode {
+          int val;
+          ListNode next;
+          ListNode() {}
+          ListNode(int val) { this.val = val; }
+          ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+     }
+
+    class Solution {
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+            ListNode head = null, tail = null;
+            int carry = 0;
+            while (l1 != null || l2 != null) {
+                int n1 = l1 != null ? l1.val : 0;
+                int n2 = l2 != null ? l2.val : 0;
+                int sum = n1 + n2 + carry;
+                if (head == null) {
+                    head = tail = new ListNode(sum % 10);
+                } else {
+                    tail.next = new ListNode(sum % 10);
+                    tail = tail.next;
+                }
+                carry = sum / 10;
+                if (l1 != null) {
+                    l1 = l1.next;
+                }
+                if (l2 != null) {
+                    l2 = l2.next;
+                }
+            }
+            if (carry > 0) {
+                tail.next = new ListNode(carry);
+            }
+            return head;
+        }
     }
 
     // leetCode 第三题
@@ -85,8 +132,9 @@ public class Leetcode {
     public int isPrefixOfWord(String sentence, String searchWord) {
         String[] split = sentence.split(" ");
         for (int i = 0; i < split.length; i++) {
-            if (split[i].startsWith(searchWord))
+            if (split[i].startsWith(searchWord)) {
                 return i + 1;
+            }
         }
         return -1;
     }
@@ -121,6 +169,42 @@ public class Leetcode {
             maxNum = maxNow > maxNum ? maxNow : maxNum;
         }
         return maxNum;
+    }
+
+    /** 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+     *  算法的时间复杂度应该为 O(log (m+n)) 。
+     *  4. 寻找两个正序数组的中位数
+     */
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] ints = IntStream.concat(Arrays.stream(nums1), Arrays.stream(nums2)).toArray();
+        Arrays.sort(ints);
+        if(ints.length % 2 == 0){
+            return new BigDecimal(ints[ints.length / 2 - 1]).add(new BigDecimal(ints[(ints.length / 2)])).divide(new BigDecimal(2)).doubleValue();
+        }else{
+            return ints[ints.length / 2];
+        }
+    }
+
+    /** 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+     *  如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。
+     *   假设环境不允许存储 64 位整数（有符号或无符号）。
+     *   7.整数反转
+     */
+    public static int reverse(int x) {
+        int rev = 0;
+        while (x != 0) {
+            if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
+                return 0;
+            }
+            int digit = x % 10;
+            x /= 10;
+            rev = rev * 10 + digit;
+        }
+        return rev;
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }
