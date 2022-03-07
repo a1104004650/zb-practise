@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * @author StormT1King
+ */
 public class BaseService {
 
 	private final static ExecutorService executor = Executors.newFixedThreadPool(100);// 启用多线程
