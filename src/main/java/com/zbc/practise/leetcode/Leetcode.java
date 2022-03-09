@@ -105,6 +105,13 @@ public class Leetcode<main> {
         return maxNum;
     }
 
+    /**
+     * leetcode 504题 七进制数
+     */
+    public static String convertToBase7(int num) {
+       return Integer.toString(num, 7);
+    }
+
     // 如果堆中有 4 块石头，那么你永远不会赢得比赛；
     // 因为无论你拿走 1 块、2 块 还是 3 块石头，最后一块石头总是会被你的朋友拿走。
     public boolean canWinNim(int n) {
