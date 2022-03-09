@@ -1,5 +1,8 @@
 package com.zbc.practise.pattern.decorator;
 
+/**
+ * @author StormT1King
+ */
 public class Tea extends BaseDrink{
 
 	@Override

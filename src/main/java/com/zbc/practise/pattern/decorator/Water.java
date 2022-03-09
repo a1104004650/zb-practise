@@ -1,5 +1,8 @@
 package com.zbc.practise.pattern.decorator;
 
+/**
+ * @author StormT1King
+ */
 public class Water extends BaseDrink{
 
 	@Override

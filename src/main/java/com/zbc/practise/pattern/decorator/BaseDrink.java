@@ -1,6 +1,6 @@
 package com.zbc.practise.pattern.decorator;
 
-/*
+/**
  * 
  * 被装饰的抽象类，基础饮料。
  * 

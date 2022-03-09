@@ -1,5 +1,9 @@
 package com.zbc.practise.pattern.decorator;
 
+/**
+ * @author StormT1King
+ * 饮料装饰器
+ */
 public abstract class DrinkDecorator extends BaseDrink{
 
 	protected BaseDrink baseDrink;

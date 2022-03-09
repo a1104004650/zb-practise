@@ -1,5 +1,9 @@
 package com.zbc.practise.pattern.decorator;
 
+/**
+ * @author StormT1King
+ * 糖装饰器
+ */
 public class SugarDecorator extends DrinkDecorator{
 
 	public SugarDecorator(BaseDrink baseDrink) {
