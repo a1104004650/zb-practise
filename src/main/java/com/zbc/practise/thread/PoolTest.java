@@ -20,7 +20,7 @@ public class PoolTest {
 
     // 创建线程的线程工厂，这个建议一定要自己重写一下，因为可以增加很多关键信息，方便出问题的时候dump或者看日志能定位到问题
     public static ThreadFactory threadFactory;
-
+    // 等待队列
     public static BlockingQueue<Runnable> workQueue;
 
     // 拒绝策略
@@ -48,6 +48,8 @@ public class PoolTest {
          * 当线程池中的线程超过了CORE_POOL_SIZE的哪些线程 如果空闲时间到了KEEP_ALIVE_TIME 那么就会自动销毁
          * 当设置allowCoreThreadTimeOut(true)时，线程池中corePoolSize线程空闲时间达到keepAliveTime也将关闭
          */
+        // 默认工厂创建
+        // ExecutorService executorService = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, workQueue, Executors.defaultThreadFactory(), rejectedExecutionHandler);
         ExecutorService executorService = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, workQueue, threadFactory, rejectedExecutionHandler);
 
         for (int i = 0; i < Long.MAX_VALUE; i++) {
@@ -55,6 +57,11 @@ public class PoolTest {
             executorService.execute(task);
         }
         // System.out.println(myThreadFactory.getStas());
+        /*
+        executorService.execute(() => {
+
+        });
+        */
 
     }
 }
