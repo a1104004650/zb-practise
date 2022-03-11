@@ -47,8 +47,7 @@ public class ChainDemo {
         msg.setMsg("4 大家好<script> http欢迎来到 *** ");
         System.out.println(msg);
         FilterChain fc = new FilterChain();
-        fc.add(new HtmlFilter())
-                .add(new SensitiveFilter());
+        fc.add(new HtmlFilter()).add(new SensitiveFilter());
 
         FilterChain fc2 = new FilterChain();
         fc2.add(new SpaceFilter())
