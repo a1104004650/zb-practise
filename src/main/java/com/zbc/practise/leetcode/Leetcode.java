@@ -38,6 +38,7 @@ public class Leetcode<main> {
         return null;
     }
 
+
     /**
      * Definition for singly-linked list.
      * 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
@@ -208,6 +209,17 @@ public class Leetcode<main> {
             rev = rev * 10 + digit;
         }
         return rev;
+    }
+
+    /** 给你两个非负整数 low 和 high 。请你返回 low 和 high 之间（包括二者）奇数的数目。
+     *  leetcode 1523. 在区间范围内统计奇数数目
+     */
+    public int countOdds(int low, int high) {
+        return pre(high) - pre(low - 1);
+    }
+
+    public int pre(int x) {
+        return (x + 1) >> 1;
     }
 
     public static void main(String[] args) {
