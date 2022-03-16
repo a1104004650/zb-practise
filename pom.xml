@@ -99,6 +99,15 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.16</version>
+            <!-- scope=provided的情况 只影响到编译，测试阶段。而在运行阶段，假定目标的容器（比如我们这里的tomcat容器）已经提供了这个jar包，app可以直接使用容器提供的jar，所以无需我们打包对应的jar包了。-->
+            <!--<scope>provided</scope>-->
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
