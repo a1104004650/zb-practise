@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Leetcode<main> {
 
@@ -131,6 +135,16 @@ public class Leetcode<main> {
         return dp[n];
     }
 
+    public static void findStr(){
+        String[] names = { "张三", "张三", "李四", "李四", "李四", "李四", "王五", "A", "B", "C", "C" };
+        Map<String, Long> finalMap = Stream.of(names)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+                .sorted((v1, v2) -> v2.getValue().compareTo(v1.getValue()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (m1, m2) -> m2, LinkedHashMap::new));
+        System.out.println(finalMap);
+    }
+
+
     /** 给你一个字符串 sentence 作为句子并指定检索词为 searchWord ，其中句子由若干用 单个空格 分隔的单词组成。
       * 请你检查检索词 searchWord 是否为句子 sentence 中任意单词的前缀。
       * 如果 searchWord 是某一个单词的前缀，则返回句子 sentence 中该单词所对应的下标（下标从 1 开始）。
@@ -223,7 +237,7 @@ public class Leetcode<main> {
     }
 
     public static void main(String[] args) {
-
+        findStr();
     }
 
 }
