@@ -75,6 +75,8 @@ public class SortTest {
                     right--;
                 }
 
+                System.out.println("left ->" + left + "right -> " + right);
+
                 if(left < right) {
                     swap(arr, left, right);
                 }
@@ -85,7 +87,9 @@ public class SortTest {
         }
 
         void swap(int[] num, int i, int j) {
-
+            int temp = num[i];
+            num[i] = num[j];
+            num[j] = temp;
         }
     }
 
