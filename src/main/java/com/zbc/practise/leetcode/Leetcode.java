@@ -2,10 +2,7 @@ package com.zbc.practise.leetcode;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -236,8 +233,19 @@ public class Leetcode<main> {
         return (x + 1) >> 1;
     }
 
+    /**
+     * 给定n个字符串，求每个字符串出现的次数并且按出现次数从大到小排序输出
+     */
+    public static void groupStr() {
+        // Arrays的 stream方法
+        String[] strs = new String[] {"12", "add", "ccc", "ffff", "12", "ss", "ff", "add", "add", "f"};
+        Map<String, Long> collect = Arrays.stream(strs)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    }
+
+
     public static void main(String[] args) {
-        findStr();
+        groupStr();
     }
 
 }
