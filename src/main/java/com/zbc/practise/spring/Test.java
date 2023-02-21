@@ -1,6 +1,7 @@
 package com.zbc.practise.spring;
 
 import com.zbc.practise.spring.bean.Person;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.concurrent.locks.ReentrantLock;

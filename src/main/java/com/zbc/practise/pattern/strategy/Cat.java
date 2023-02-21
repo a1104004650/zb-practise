@@ -1,7 +1,7 @@
 package com.zbc.practise.pattern.strategy;
 
+import com.sun.istack.internal.NotNull;
 import lombok.Data;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author StormT1King
