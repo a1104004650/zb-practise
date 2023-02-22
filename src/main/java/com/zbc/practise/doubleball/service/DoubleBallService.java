@@ -41,10 +41,8 @@ public class DoubleBallService {
     public int randomBallNum(boolean isBlue) {
         if(isBlue) {
             return (int) (Math.random()*blueMaxNum+1);
-        }else{
-            return (int) (Math.random()*redMaxNum+1);
         }
-
+        return (int) (Math.random()*redMaxNum+1);
     }
 
     public void pushBall(Map<Integer, Boolean> tmpList,Integer ballNum) {
@@ -70,7 +68,9 @@ public class DoubleBallService {
         for (Object key: tmp.get(BLUE).keySet()) {
             System.out.print(key + ",");
         }
-
     }
+
+
+
     
 }
