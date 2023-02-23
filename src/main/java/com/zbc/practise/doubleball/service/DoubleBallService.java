@@ -70,6 +70,23 @@ public class DoubleBallService {
         }
     }
 
+    public Map<String, Map> buildBallMap(Integer[] redList,Integer[] blueList) {
+        Map<String, Map> prizeMap = new HashMap<>();
+        Map<Integer, Integer> redPrizeMap = new HashMap<>();
+        Map<Integer, Integer> bluePrizeMap = new HashMap<>();
+
+        for (int i = 0; i < redList.length; i++) {
+            redPrizeMap.put(redList[i], null);
+        }
+        for (int i = 0; i < redList.length; i++) {
+            bluePrizeMap.put(redList[i], null);
+        }
+
+        prizeMap.put("RED", redPrizeMap);
+        prizeMap.put("BLUE", bluePrizeMap);
+        return prizeMap;
+    }
+
 
 
     

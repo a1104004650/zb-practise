@@ -10,21 +10,14 @@ import java.util.Map;
 public class BallTest {
 
     public static void main(String[] args) {
-        Map<String, Map> prizeMap = new HashMap<>();
-        Map<Integer, Integer> redPrizeMap = new HashMap<>();
-        Map<Integer, Integer> bluePrizeMap = new HashMap<>();
-        redPrizeMap.put(1, null);
-        redPrizeMap.put(5, null);
-        redPrizeMap.put(10, null);
-        redPrizeMap.put(13, null);
-        redPrizeMap.put(27, null);
-        redPrizeMap.put(31, null);
-        bluePrizeMap.put(7, null);
-        prizeMap.put("RED", redPrizeMap);
-        prizeMap.put("BLUE", bluePrizeMap);
-
-        DoubleBallService start = new DoubleBallService();
+        // 中奖号码
         long startTime = System.currentTimeMillis();
+        DoubleBallService start = new DoubleBallService();
+        Integer[] redList = new Integer[]{2,7,12,13,22,27};
+        Integer[] blueList = new Integer[]{9};
+        // 中奖集合
+        Map<String, Map> prizeMap = start.buildBallMap(redList, blueList);
+        // 机选集合
         Map<String, Map> choseMap = start.randomBall(6, 1);
         start.printBall(start.randomBall(6, 1));
         System.out.println("");
