@@ -28,7 +28,7 @@ public class TimeoutAspect {
         // 从注解中获取超时时间
         long timeoutMillis = timeoutCheck.timeout();
         logger.info("接口被监控进入");
-        Future<Object> future = executorService.submit(() -> {
+        /*Future<Object> future = executorService.submit(() -> {
             try {
                 return joinPoint.proceed();
             } catch (Throwable throwable) {
@@ -47,7 +47,7 @@ public class TimeoutAspect {
             // 取消任务
             logger.info("终止接口的执行");
             future.cancel(true);
-        }
+        }*/
         return null;
     }
 
